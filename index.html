@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Weather App</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./Assets/style.css" />
+</head>
+<body>
+    <div class="page-header text-center">
+        <h1 id="header">Weather Dashboard</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 text-left" id="leftCol">
+                <h4>Search For a City:</h4>
+                <form class="form-inline">
+                    <input id="cityInput" class="form-control mr-sm-2" type="search" placeholder="Philadelphia" aria-label="Search">
+                    <button id="searchButton" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="col-8" id="rightCol">
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                          <h2>City (Date)</h2>
+                          <p>Temperature: </p>
+                          <p>Humidity: </p>
+                          <p>Wind Speed: </p>
+                          <p>Humidity: </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="rightRow2">
+                    <p>5-day forecast</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./Assets/script.js"></script>
+</body>
+</html>
