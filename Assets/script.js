@@ -17,11 +17,15 @@ $(document).ready(function() {
         console.log("click");
         event.preventDefault();
        
+        //set the city and date in right column
         var city = $("#cityInput").val();
         console.log("City: ", city);
 
-        //set the city name in the right column
-        $("#cityEl").text(city)
+        
+        var date = moment().format('l');
+        console.log(date);
+        
+        $("#cityEl").text(city + "  " + date);
 
         var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c59597ffd14758d47fc6dad0d31f1be0";
 
