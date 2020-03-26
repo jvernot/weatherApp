@@ -25,7 +25,7 @@ $(document).ready(function() {
         var date = moment().format('l');
         console.log(date);
         
-        $("#cityEl").text(city + "  " + date);
+        $("#cityEl").text(city + " (" + date + ")");
 
         var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c59597ffd14758d47fc6dad0d31f1be0";
 
@@ -50,6 +50,12 @@ $(document).ready(function() {
             var wind = response.wind.speed;
             console.log(wind);
             $("#windEl").text("Wind Speed: " + wind + "MPH");
+
+            var icon = response.weather[0].icon;
+            var icon = ("http://openweathermap.org/img/wn/" + icon + "@2x.png");
+            $("#cityEl").append("<img src=" + icon + ">");
+
+
 
             //need to record the lat and long from the location and use another API call to get the UV index
 
