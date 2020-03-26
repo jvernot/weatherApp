@@ -82,6 +82,18 @@ $(document).ready(function() {
             })
 
 
+            //5 day forecast api call
+
+            var forecastQueryUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=c59597ffd14758d47fc6dad0d31f1be0"
+
+            $.ajax({
+                url: forecastQueryUrl,
+                method: "GET"
+            })
+
+            .then(function(response) {
+                console.log(response);
+            })
         })
 
 
