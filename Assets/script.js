@@ -27,6 +27,23 @@ $(document).ready(function() {
         
         $("#cityEl").text(city + " (" + date + ")");
 
+
+
+
+        //setting up local storage for the cities entered
+        //storedCities quals whatever is in local storage names cities array or a blank array
+        var storedCities = JSON.parse(localStorage.getItem("citiesArray")) || [];
+        //new ccity is equal to the var city (pulled from the search bar)
+        var newCity = city
+        //pushing new city into the storedCities array
+        storedCities.push(newCity);
+        //setting citiesArry in local storage equal to the stringified array storedCities
+        localStorage.setItem("citiesArray", JSON.stringify(storedCities));
+
+
+
+
+
         var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c59597ffd14758d47fc6dad0d31f1be0";
 
         $.ajax({
