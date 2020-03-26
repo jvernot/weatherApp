@@ -22,7 +22,14 @@
     margin-right: 5px;
 }
 
+#rightRow1 {
+    border-radius: 5px;
+    border: 2px solid lightgrey;
+}
+
 #rightRow2 {
+    border-radius: 5px;
+    border: 2px solid lightsteelblue;
     background-color: lightsteelblue;
 }
 
