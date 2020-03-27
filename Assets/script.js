@@ -10,8 +10,29 @@
 //need to find the corerct paths in the "response" to get the values for temp, humidity, wind speed, UV index
 // then need to add these responses to the p elements that they correspond to 
 
+window.onload = function() {
+
+    var storedCities = JSON.parse(localStorage.getItem("citiesArray")) || [];
+    
+    storedCities = storedCities.slice(0, 10);
+    
+    $("#cityDiv").empty();        
+    
+    //loop through the array and for each item in the array create an item that I want to use -- look at jquery drinks list
+    for (var i =0; i < storedCities.length; i++) {
+
+        newCityDiv = $("<div class='p-2' id='cityCards'>" + storedCities[i] + "</div>");
+    
+        $("#cityDiv").append(newCityDiv);
+    }
+}
+
+
+
+
 $(document).ready(function() {
     console.log("test");
+
 
     $("#searchButton").on("click", function(event){
         console.log("click");
@@ -28,17 +49,28 @@ $(document).ready(function() {
         $("#cityEl").text(city + " (" + date + ")");
 
 
-
-
         //setting up local storage for the cities entered
         //storedCities quals whatever is in local storage names cities array or a blank array
         var storedCities = JSON.parse(localStorage.getItem("citiesArray")) || [];
         //new ccity is equal to the var city (pulled from the search bar)
-        var newCity = city
+        var newCity = city;
         //pushing new city into the storedCities array
-        storedCities.push(newCity);
-        //setting citiesArry in local storage equal to the stringified array storedCities
+        storedCities.unshift(newCity);
+        //setting citiesArray in local storage equal to the stringified array storedCities
         localStorage.setItem("citiesArray", JSON.stringify(storedCities));
+
+        storedCities = storedCities.slice(0, 10);
+
+        $("#cityDiv").empty();        
+
+        //loop through the array and for each item in the array create an item that I want to use -- look at jquery drinks list
+        for (var i =0; i < storedCities.length; i++) {
+
+
+            newCityDiv = $("<div class='p-2' id='cityCards'>" + storedCities[i] + "</div>");
+
+            $("#cityDiv").append(newCityDiv);
+        }
 
 
 
@@ -110,6 +142,8 @@ $(document).ready(function() {
 
             .then(function(response) {
                 console.log(response);
+
+
             })
         })
 
