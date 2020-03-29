@@ -10,20 +10,22 @@
 //need to find the corerct paths in the "response" to get the values for temp, humidity, wind speed, UV index
 // then need to add these responses to the p elements that they correspond to 
 
+
+//setting previous searches to show when the page is closed and re-opened
 window.onload = function() {
 
     var storedCities = JSON.parse(localStorage.getItem("citiesArray")) || [];
     
-    storedCities = storedCities.slice(0, 10);
+    storedCities = storedCities.slice(0, 9);
     
-    $("#cityDiv").empty();        
+    $("#citySearches").empty();        
     
     //loop through the array and for each item in the array create an item that I want to use -- look at jquery drinks list
     for (var i =0; i < storedCities.length; i++) {
-
-        newCityDiv = $("<div class='p-2' id='cityCards'>" + storedCities[i] + "</div>");
-    
-        $("#cityDiv").append(newCityDiv);
+            
+        newCityEl = $("<li class='list-group-item'>" + storedCities[i] + "</li>");
+        
+        $("#citySearches").append(newCityEl);
     }
 }
 
@@ -38,42 +40,34 @@ $(document).ready(function() {
         console.log("click");
         event.preventDefault();
        
-        //set the city and date in right column
+        // set the city variable for the left column and API call
         var city = $("#cityInput").val();
-        console.log("City: ", city);
-
         
-        var date = moment().format('l');
-        console.log(date);
-        
-        $("#cityEl").text(city + " (" + date + ")");
-
-
         //setting up local storage for the cities entered
         //storedCities quals whatever is in local storage names cities array or a blank array
         var storedCities = JSON.parse(localStorage.getItem("citiesArray")) || [];
         //new ccity is equal to the var city (pulled from the search bar)
         var newCity = city;
-        //pushing new city into the storedCities array
+        //pushing new city into the storedCities array at the front
         storedCities.unshift(newCity);
         //setting citiesArray in local storage equal to the stringified array storedCities
         localStorage.setItem("citiesArray", JSON.stringify(storedCities));
-
-        storedCities = storedCities.slice(0, 10);
-
-        $("#cityDiv").empty();        
-
+        
+        storedCities = storedCities.slice(0, 9);
+        
+        $("#citySearches").empty();        
+        
         //loop through the array and for each item in the array create an item that I want to use -- look at jquery drinks list
         for (var i =0; i < storedCities.length; i++) {
-
-
-            newCityDiv = $("<div class='p-2' id='cityCards'>" + storedCities[i] + "</div>");
-
-            $("#cityDiv").append(newCityDiv);
+            
+            
+            newCityEl = $("<li class='list-group-item'>" + storedCities[i] + "</li>");
+            
+            $("#citySearches").append(newCityEl);
         }
-
-
-
+        
+        
+        
 
 
         var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c59597ffd14758d47fc6dad0d31f1be0";
@@ -87,6 +81,13 @@ $(document).ready(function() {
             console.log(response);
 
             //set all of the weather elements in the right column
+
+            var city = response.name;
+            console.log(city);
+            var date = moment().format('l');
+            console.log(date);
+            
+            $("#cityEl").text(city + " (" + date + ")");
 
             var temp = response.main.temp;
             console.log(temp);
@@ -125,7 +126,7 @@ $(document).ready(function() {
                 console.log(response);
 
                 var uv = response.value;
-                console.log(uv);
+                console.log("UV Index:" + uv);
                 $("#uvEl").text("UV Index: " + uv);
 
             })
@@ -142,6 +143,29 @@ $(document).ready(function() {
 
             .then(function(response) {
                 console.log(response);
+
+                var times = [5, 13, 21, 29, 37];
+
+                var count = 1
+
+                for (var i = 0; i < times.length; i++) {
+
+                    count++;
+                    var futureDate = moment().add(count, 'days').format("l");
+                    console.log(futureDate);
+                    
+
+
+                    var weatherIcon = response.list[i].weather[0].icon;
+                    console.log(weatherIcon);
+
+                    var futureTemp = response.list[i].main.temp;
+                    console.log(futureTemp);
+
+                    var futureHumid = response.list[i].main.humidity;
+                    console.log(futureHumid);
+
+                }
 
 
             })
