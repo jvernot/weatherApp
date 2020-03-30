@@ -2,7 +2,7 @@
     //consider clering the divs with the city weather info when the search is clicked
     //input the city as a parameter in the queryUrl to search the API
     //also need to save the city that is input to local storage and prepend it under the search bar
-    //the city name also need to be added to the right side column
+    //the city name also needs to be added to the right side column
 
 //use moment.js format to have the date appear next to the city name in the right column
 //append the icon after the date using this url "http://openweathermap.org/img/wn/" + icon + "@2x.png" and the reponse.icon
@@ -91,7 +91,7 @@ $(document).ready(function() {
 
             var temp = response.main.temp;
             console.log(temp);
-            $("#tempEl").text("Temperature: " + temp + "°F");
+            $("#tempEl").text("Temperature: " + temp + " °F");
 
             var humidity = response.main.humidity;
             console.log(humidity);
@@ -99,7 +99,7 @@ $(document).ready(function() {
 
             var wind = response.wind.speed;
             console.log(wind);
-            $("#windEl").text("Wind Speed: " + wind + "MPH");
+            $("#windEl").text("Wind Speed: " + wind + " MPH");
 
             var icon = response.weather[0].icon;
             var icon = ("http://openweathermap.org/img/wn/" + icon + "@2x.png");
@@ -127,7 +127,7 @@ $(document).ready(function() {
 
                 var uv = response.value;
                 console.log("UV Index:" + uv);
-                $("#uvEl").text("UV Index: " + uv);
+                $("#uvEl").html("<p>UV Index: " + "<span>" + uv + "</span></h1>");
 
             })
 
@@ -144,29 +144,180 @@ $(document).ready(function() {
             .then(function(response) {
                 console.log(response);
 
-                var times = [5, 13, 21, 29, 37];
+                var futureDate1 = moment().add(1, 'days').format("l");
+                console.log(futureDate1);
 
-                var count = 1
-
-                for (var i = 0; i < times.length; i++) {
-
-                    count++;
-                    var futureDate = moment().add(count, 'days').format("l");
-                    console.log(futureDate);
+                $("#forecast1").append("<div id= 'day1' class='card-body'>");
                     
+                $("#day1").append("<h5 class='card-title'>" + futureDate1 + "</h5>");
+
+                var weatherIcon1 = response.list[5].weather[0].icon;
+                console.log(weatherIcon1);
+                var weatherIcon1 = ("http://openweathermap.org/img/wn/" + weatherIcon1 + "@2x.png");
+
+                $("#day1").append("<img src=" + weatherIcon1 + ">");
+
+                var futureTemp1 = response.list[5].main.temp;
+                console.log(futureTemp1);
+
+                $("#day1").append("<p class='card-text'>Temp: " + futureTemp1 + " °F</p>")
+
+                var futureHumid1 = response.list[5].main.humidity;
+                console.log(futureHumid1);
+
+                $("#day1").append("<p class='card-text'>Humidity: " + futureHumid1 + "%</p>")
+
+                
+                
+                
+                //Day 2
+
+                var futureDate2 = moment().add(2, 'days').format("l");
+                console.log(futureDate2);
+
+                $("#forecast2").append("<div id='day2' class='card-body'>");
+                    
+                $("#day2").append("<h5 class='card-title'>" + futureDate2 + "</h5>");
+
+                var weatherIcon2 = response.list[13].weather[0].icon;
+                console.log(weatherIcon2);
+                var weatherIcon2 = ("http://openweathermap.org/img/wn/" + weatherIcon2 + "@2x.png");
+
+                $("#day2").append("<img src=" + weatherIcon2 + ">");
+
+                var futureTemp2 = response.list[13].main.temp;
+                console.log(futureTemp2);
+
+                $("#day2").append("<p class='card-text'>Temp: " + futureTemp2 + " °F</p>")
+
+                var futureHumid2 = response.list[13].main.humidity;
+                console.log(futureHumid2);
+
+                $("#day2").append("<p class='card-text'>Humidity: " + futureHumid2 + "%</p>")
 
 
-                    var weatherIcon = response.list[i].weather[0].icon;
-                    console.log(weatherIcon);
 
-                    var futureTemp = response.list[i].main.temp;
-                    console.log(futureTemp);
+                //Day 3
 
-                    var futureHumid = response.list[i].main.humidity;
-                    console.log(futureHumid);
 
-                }
+                var futureDate3 = moment().add(3, 'days').format("l");
+                console.log(futureDate3);
 
+                $("#forecast3").append("<div id='day3' class='card-body'>");
+                    
+                $("#day3").append("<h5 class='card-title'>" + futureDate3 + "</h5>");
+
+                var weatherIcon3 = response.list[21].weather[0].icon;
+                console.log(weatherIcon3);
+                var weatherIcon3 = ("http://openweathermap.org/img/wn/" + weatherIcon3 + "@2x.png");
+
+                $("#day3").append("<img src=" + weatherIcon3 + ">");
+
+                var futureTemp3 = response.list[21].main.temp;
+                console.log(futureTemp3);
+
+                $("#day3").append("<p class='card-text'>Temp: " + futureTemp3 + " °F</p>");
+
+                var futureHumid3 = response.list[21].main.humidity;
+                console.log(futureHumid3);
+
+                $("#day3").append("<p class='card-text'>Humidity: " + futureHumid3 + "%</p>");
+
+
+                //Day 4
+
+                var futureDate4 = moment().add(4, 'days').format("l");
+                console.log(futureDate4);
+
+                $("#forecast4").append("<div id='day4' class='card-body'>");
+                    
+                $("#day4").append("<h5 class='card-title'>" + futureDate4 + "</h5>");
+
+                var weatherIcon4 = response.list[29].weather[0].icon;
+                console.log(weatherIcon4);
+                var weatherIcon4 = ("http://openweathermap.org/img/wn/" + weatherIcon4 + "@2x.png");
+
+                $("#day4").append("<img src=" + weatherIcon4 + ">");
+
+                var futureTemp4 = response.list[29].main.temp;
+                console.log(futureTemp4);
+
+                $("#day4").append("<p class='card-text'>Temp: " + futureTemp4 + " °F</p>");
+
+                var futureHumid4 = response.list[29].main.humidity;
+                console.log(futureHumid4);
+
+                $("#day4").append("<p class='card-text'>Humidity: " + futureHumid4 + "%</p>");
+                
+                
+
+                //Day 5
+
+                var futureDate5 = moment().add(4, 'days').format("l");
+                console.log(futureDate5);
+
+                $("#forecast5").append("<div id='day5' class='card-body'>");
+                    
+                $("#day5").append("<h5 class='card-title'>" + futureDate5 + "</h5>");
+
+                var weatherIcon5 = response.list[37].weather[0].icon;
+                console.log(weatherIcon5);
+                var weatherIcon5 = ("http://openweathermap.org/img/wn/" + weatherIcon5 + "@2x.png");
+
+                $("#day5").append("<img src=" + weatherIcon5 + ">");
+
+                var futureTemp5 = response.list[37].main.temp;
+                console.log(futureTemp5);
+
+                $("#day5").append("<p class='card-text'>Temp: " + futureTemp5 + " °F</p>");
+
+                var futureHumid5 = response.list[37].main.humidity;
+                console.log(futureHumid5);
+
+                $("#day5").append("<p class='card-text'>Humidity: " + futureHumid5 + "%</p>");
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                // maybe try array for days 1-5 and calling $("'#forecast(' + i + ')'")
+                
+                // var times = [5, 13, 21, 29, 37];
+
+                // var count = 0
+
+                // for (var i = 0; i < times.length; i++) {
+
+                    
+                    // $("#forecastCard").append("<div class='card-body'>");
+                    
+                    // $(".card-body").append("<h5 class='card-title'>" + futureDate + "</h5>");
+                    
+                    // count++;
+                    // var futureDate = moment().add(count, 'days').format("l");
+                    // console.log(futureDate);
+                    
+                    // $("#rightRow2").append("<h5 class='card-title'>" + futureDate + "</h5>");
+                    
+                    // var weatherIcon = response.list[i].weather[0].icon;
+                    // console.log(weatherIcon);
+                    
+                    // var futureTemp = response.list[i].main.temp;
+                    // console.log(futureTemp);
+                    
+                    // var futureHumid = response.list[i].main.humidity;
+                    // console.log(futureHumid);
+                    
+                // }
+                
 
             })
         })
