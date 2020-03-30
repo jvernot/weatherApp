@@ -127,7 +127,23 @@ $(document).ready(function() {
 
                 var uv = response.value;
                 console.log("UV Index:" + uv);
-                $("#uvEl").html("<p>UV Index: " + "<span>" + uv + "</span></h1>");
+                $("#uvEl").html("<p>UV Index: " + "<span id='uvColor' >" + uv + "</span></h1>");
+
+                if (uv <= 2.5) {
+                    $("#uvColor").addClass("low")
+                } 
+                else if (uv > 2.5 && uv <= 5.5) {
+                    $("#uvColor").addClass("moderate")
+                }
+                else if (uv > 5.5 && uv <= 7.5) {
+                    $("#uvColor").addClass("high")
+                }
+                else if (uv > 7.5 && uv <= 10.5) {
+                    $("#uvColor").addClass("very-high")
+                }
+                else if (uv > 10.5) {
+                    $("#uvColor").addClass("extreme")
+                } 
 
             })
 
@@ -146,6 +162,8 @@ $(document).ready(function() {
 
                 var futureDate1 = moment().add(1, 'days').format("l");
                 console.log(futureDate1);
+
+                $("#forecast1").empty();
 
                 $("#forecast1").append("<div id= 'day1' class='card-body'>");
                     
@@ -175,6 +193,8 @@ $(document).ready(function() {
                 var futureDate2 = moment().add(2, 'days').format("l");
                 console.log(futureDate2);
 
+                $("#forecast2").empty();
+
                 $("#forecast2").append("<div id='day2' class='card-body'>");
                     
                 $("#day2").append("<h5 class='card-title'>" + futureDate2 + "</h5>");
@@ -203,6 +223,8 @@ $(document).ready(function() {
                 var futureDate3 = moment().add(3, 'days').format("l");
                 console.log(futureDate3);
 
+                $("#forecast3").empty();
+
                 $("#forecast3").append("<div id='day3' class='card-body'>");
                     
                 $("#day3").append("<h5 class='card-title'>" + futureDate3 + "</h5>");
@@ -228,6 +250,8 @@ $(document).ready(function() {
 
                 var futureDate4 = moment().add(4, 'days').format("l");
                 console.log(futureDate4);
+
+                $("#forecast4").empty();
 
                 $("#forecast4").append("<div id='day4' class='card-body'>");
                     
@@ -255,6 +279,8 @@ $(document).ready(function() {
 
                 var futureDate5 = moment().add(4, 'days').format("l");
                 console.log(futureDate5);
+
+                $("#forecast5").empty();
 
                 $("#forecast5").append("<div id='day5' class='card-body'>");
                     

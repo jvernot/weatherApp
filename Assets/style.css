@@ -43,3 +43,38 @@ img {
     height: 50px;
     width: 50px;
 }
+
+.low {
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+}
+
+.moderate {
+    background-color: yellow;
+    border-radius: 5px;
+    color: black;
+    padding: 5px;
+}
+
+.high {
+    background-color:orange;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+}
+
+.very-high {
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+}
+
+.extreme {
+    background-color: rgb(185, 41, 185);
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+}
