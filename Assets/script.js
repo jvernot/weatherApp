@@ -148,7 +148,7 @@ $(document).ready(function() {
     
             //5 day forecast api call
     
-            var forecastQueryUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=c59597ffd14758d47fc6dad0d31f1be0"
+            var forecastQueryUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=c59597ffd14758d47fc6dad0d31f1be0"
     
             $.ajax({
                 url: forecastQueryUrl,
@@ -169,7 +169,7 @@ $(document).ready(function() {
     
                 var weatherIcon1 = response.list[5].weather[0].icon;
                 console.log(weatherIcon1);
-                var weatherIcon1 = ("http://openweathermap.org/img/wn/" + weatherIcon1 + "@2x.png");
+                var weatherIcon1 = ("https://openweathermap.org/img/wn/" + weatherIcon1 + "@2x.png");
     
                 $("#day1").append("<img src=" + weatherIcon1 + ">");
     
@@ -199,7 +199,7 @@ $(document).ready(function() {
     
                 var weatherIcon2 = response.list[13].weather[0].icon;
                 console.log(weatherIcon2);
-                var weatherIcon2 = ("http://openweathermap.org/img/wn/" + weatherIcon2 + "@2x.png");
+                var weatherIcon2 = ("https://openweathermap.org/img/wn/" + weatherIcon2 + "@2x.png");
     
                 $("#day2").append("<img src=" + weatherIcon2 + ">");
     
@@ -229,7 +229,7 @@ $(document).ready(function() {
     
                 var weatherIcon3 = response.list[21].weather[0].icon;
                 console.log(weatherIcon3);
-                var weatherIcon3 = ("http://openweathermap.org/img/wn/" + weatherIcon3 + "@2x.png");
+                var weatherIcon3 = ("https://openweathermap.org/img/wn/" + weatherIcon3 + "@2x.png");
     
                 $("#day3").append("<img src=" + weatherIcon3 + ">");
     
@@ -257,7 +257,7 @@ $(document).ready(function() {
     
                 var weatherIcon4 = response.list[29].weather[0].icon;
                 console.log(weatherIcon4);
-                var weatherIcon4 = ("http://openweathermap.org/img/wn/" + weatherIcon4 + "@2x.png");
+                var weatherIcon4 = ("https://openweathermap.org/img/wn/" + weatherIcon4 + "@2x.png");
     
                 $("#day4").append("<img src=" + weatherIcon4 + ">");
     
@@ -286,7 +286,7 @@ $(document).ready(function() {
     
                 var weatherIcon5 = response.list[37].weather[0].icon;
                 console.log(weatherIcon5);
-                var weatherIcon5 = ("http://openweathermap.org/img/wn/" + weatherIcon5 + "@2x.png");
+                var weatherIcon5 = ("https://openweathermap.org/img/wn/" + weatherIcon5 + "@2x.png");
     
                 $("#day5").append("<img src=" + weatherIcon5 + ">");
     
