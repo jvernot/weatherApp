@@ -100,7 +100,7 @@ $(document).ready(function() {
             $("#windEl").text("Wind Speed: " + wind + " MPH");
     
             var icon = response.weather[0].icon;
-            var icon = ("http://openweathermap.org/img/wn/" + icon + "@2x.png");
+            var icon = ("https://openweathermap.org/img/wn/" + icon + "@2x.png");
             $("#cityEl").append("<img src=" + icon + ">");
     
     
@@ -113,7 +113,7 @@ $(document).ready(function() {
             console.log("lat: " + latitude);
             console.log("lon: " + longitude);
     
-            var uvQueryUrl = "http://api.openweathermap.org/data/2.5/uvi?appid=c59597ffd14758d47fc6dad0d31f1be0&lat=" + latitude + "&lon=" + longitude;
+            var uvQueryUrl = "https://api.openweathermap.org/data/2.5/uvi?appid=c59597ffd14758d47fc6dad0d31f1be0&lat=" + latitude + "&lon=" + longitude;
     
             $.ajax({
                 url: uvQueryUrl,
