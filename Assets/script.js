@@ -275,7 +275,7 @@ $(document).ready(function() {
     
                 //Day 5
     
-                var futureDate5 = moment().add(4, 'days').format("l");
+                var futureDate5 = moment().add(5, 'days').format("l");
                 console.log(futureDate5);
     
                 $("#forecast5").empty();
