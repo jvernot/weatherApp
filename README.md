@@ -1,1 +1,1 @@
-# weatherApp
+This is a fully functioning weather dashboard. To use this dashboard, simply type in any city that you would like to see weather for and search. You will be provided with current weather as well as a 5 day forecast. Your past searches will be recorded underneath the search bar. You can also click the cities in your history if you would like to navigate back to that city's weather. When the page is close and re-opened, your last search will be displayed. 

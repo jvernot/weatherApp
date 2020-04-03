@@ -16,16 +16,14 @@
     padding: 10px;
 }
 
-#leftCol {
-    background-color: lightgray;
-    padding: 10px;
-    margin-right: 5px;
+h4 {
+    text-align: center;
 }
 
-#cityCards {
-    border: 2px solid grey;
-    background-color: white;
-    color: grey;
+#leftCol {
+    background-color: lightcoral;
+    padding: 10px;
+    margin-right: 5px;
 }
 
 #rightRow1 {
@@ -42,6 +40,10 @@
 img {
     height: 50px;
     width: 50px;
+}
+
+li {
+    cursor: pointer;
 }
 
 .low {
